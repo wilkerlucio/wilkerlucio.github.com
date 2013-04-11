@@ -1,0 +1,17 @@
+---
+layout: post
+title: Basic Http Auth with Devise to protect entire site for staging versions
+published: true
+---
+<p>Sometimes you need to stage a client site to he can see it, but some clients are a little neurotic about others seeing their sites before the launch, what is an acceptable behavior. In one job that Im doing I dropped in this case and need to protect entire site from access. It will be easier to do with a clean Rails installation, but Im using Devise, and Devise do some jobs on basic auth, so, it don't play nice at start... The solution was create an extra strategy for Warden, in order to make it do the authentication, after a lot of research and code read I reached a solution, and I'm here sharing it with you :)</p>
+<p>At first you need to create the strategy and configure Devise:</p>
+<p>
+<script src="http://gist.github.com/420907.js?file=devise.rb"></script>
+</p>
+<p>After you need to configure your application controller:</p>
+<p>
+<script src="http://gist.github.com/420907.js?file=application_controller.rb"></script>
+</p>
+<p>And it will make your entire site to be protected with http basic auth.</p>
+<p>To make it works I first created a separated scope for this login, otherwise the devise will go crazy, and also I need to created that FakeModel class, because devise always try to serialize/deserialize the record save, to make a record compatible, just need to have an "id" method on instance, and a "find" method in class.</p>
+<p>So, if you need to protected your site for staging, this solution will make everyone happy :)</p>

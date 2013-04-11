@@ -1,0 +1,16 @@
+---
+layout: post
+title: Nunca mais toque no arquivo /etc/hosts para definir aplicações locais
+published: true
+---
+
+<div>Quem usa um servidor local para desenvolver (nginx, apache ou outro...) deve passar pela etapa de editar o arquivo /etc/hosts para definir um ip local para a aplicação. Isso é especialmente chato quando você precisa desenvolver aplicações que usam subdominios, porque voce tem que definir os subdominios de teste 1 por 1 ja que o arquivo hosts nao suporta wildcards.</div>
+<div>Hoje descobri uma solução bem interessante para isso, que é criar um arquivo de configuração de proxy.</div>
+<div>No meu caso eu criei no meu home o arquivo proxy.pac:</div>
+<script src="http://gist.github.com/379451.js"></script>
+<div>Com ele eu estou dizendo que sempre que um dominio terminar com .local, ele deve ser usado no localhost (eu sempre uso .local para aplicações internas, você pode modificar se preferir).</div>
+<div>Para utilizar esse arquivo no Mac eu fui em Settings/Network/Advanced/Proxies/Automatic Proxy Configuration e mandei ele utilizar esse arquivo (lembre também de remover o *.local dos hosts bypass na caixa de texto quem tem logo abaixo, se o *.local estiver presente).</div>
+<div>Com isso agora tudo que termina com .local vai para local, nunca mais preciso mexer no /etc/hosts</div>
+<div>Não sei se tem como aplicar esse arquivo a nivel de sistema em outros SO, mas é possivel utiliza-lo direto no Firefox se você nao tiver a opção de aplicar a nivel de sistema.</div>
+<div>detalhe: no caso do mac, se lembre de ir nas configurações do firefox e mandar ele utilizar o proxy do sistema, senão ele simplesmente vai passar direto, Safari e Chrome não exigem nenhuma configuração extra.</div>
+<p> </p>

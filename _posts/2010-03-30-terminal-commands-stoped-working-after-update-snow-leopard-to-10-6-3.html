@@ -1,0 +1,23 @@
+---
+layout: post
+title: terminal commands stoped working after update Snow Leopard to 10.6.3
+published: true
+---
+<p>[SOLVED]</p>
+<p />
+<div>If anyone else has this problem after yesterday update, the solution is simple:</div>
+<p />
+<div>open the file <code>/etc/paths</code> as <code>sudo</code></div>
+<div>them add <code>/opt/local/bin</code> to this file, the end content should be like this:</div>
+<p />
+<div><code>
+</code><div>/usr/bin</div>
+<div>/bin</div>
+<div>/opt/local/bin</div>
+<div>/usr/sbin</div>
+<div>/sbin</div>
+<div>/usr/local/bin</div>
+
+<p />
+<div>The problem is this update removed <code>/opt/local/bin</code> from <strong>PATH</strong>, preventing many programs that was installed there to run...</div>
+</div>

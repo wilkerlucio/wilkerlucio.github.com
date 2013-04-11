@@ -1,0 +1,24 @@
+---
+layout: post
+title: Como ter backup automático dos dados de seus programas desktop
+published: true
+---
+<p>Em tempos onde tudo hoje est&aacute; sendo feito diretamente na web (e como desenvolvedor web, sou a favor disso) n&oacute;s j&aacute; estamos bem acostumados a ter nossos dados salvos automaticamente na internet, oque &eacute; &oacute;timo, nada de se preocupar com backups ou essas coisas chatas, ter que lembrar de gravar os dados de um monte de aplicativo antes de formatar, e por ai vai...</p>
+<p>Mas mesmo assim ainda tem softwares que s&atilde;o preferencialmente usados no Desktop, seja porque a solu&ccedil;&atilde;o funciona melhor que as atuais da web, ou simplesmente por ser mais r&aacute;pido. Se voc&ecirc; j&aacute; &eacute; acostumado a ter os dados salvos na internet, o uso desses programas desktop deve dar um frio na espinha, afinal, os dados est&atilde;o apenas no seu computador, se pifar alguma coisa j&aacute; era... Imagina utilizar um gerenciador financeiro desktop, e de um dia pro outro perder 5 anos de hist&oacute;rico de transa&ccedil;&otilde;es devido a uma falha no HD... &Eacute; um problema.</p>
+<p>Bom, mas agora venho com uma solu&ccedil;&atilde;o bem legal para resolver esse problema, uma forma para os dados dos seus softwares desktop serem gravados automaticamente na web, e de quebra voc&ecirc; ainda ganha sincroniza&ccedil;&atilde;o autom&aacute;tica (se voc&ecirc; usar um computador em casa e um no trabalho por exemplo).</p>
+<p>O segredo desse "truque" est&aacute; em duas coisas: Dropbox e Links Simb&oacute;licos</p>
+<p>Se voc&ecirc; ainda n&atilde;o tem uma conta do <a href="http://www.dropbox.com/">Dropbox</a>, crie, voc&ecirc; j&aacute; deveria ter :)</p>
+<p>O Dropbox cria aquela pasta m&aacute;gica no seu computador onde tudo que &eacute; salvo na mesma &eacute; automaticamente jogado nos servidores do Dropbox, ent&atilde;o a id&eacute;ia &eacute; salvar os dados dos seus aplicativos na pasta do Dropbox. Os softwares funcionam de variadas maneiras ent&atilde;o vamos ver os casos. Antes de mais nada crie uma pasta no Dropbox para os dados dos seus aplicativos (eu chamo de "Application Data" aqui). Vamos l&aacute;.</p>
+<p><strong><span style="font-size: medium;">Softwares que a pasta dos dados s&atilde;o configur&aacute;veis</span></strong></p>
+<p>Esses s&atilde;o os casos mais f&aacute;ceis, softwares como 1Password ou iFinance que permitem que voc&ecirc; escolha onde os dados s&atilde;o salvos, basta selecionar uma pasta no Dropbox e pronto, tudo j&aacute; vai estar nas nuvens :)</p>
+<p><span style="font-size: medium;"><strong>Softwares onde a pasta dos dados n&atilde;o s&atilde;o configur&aacute;veis</strong></span></p>
+<p>Aqui &eacute; que vem o "pulo do gato". O truque nesses casos &eacute; usar links simb&oacute;licos de sistema. Os links simb&oacute;licos s&atilde;o como apontadores, voc&ecirc; cria uma pasta/arquivo que n&atilde;o existe, ele apenas aponta para uma pasta/arquivo em outro lugar. Ent&atilde;o, o caso aqui &eacute; ter a pasta real no Dropbox e criar um link para ela onde o software tem sua pasta real (parece complicado, mas &eacute; simples).</p>
+<p>Vamos tomar como exemplo o Address Book do Mac.</p>
+<p>A primeira coisa a se fazer &eacute; descobrir onde os dados do software est&atilde;o sendo salvos. No caso do Address Book eles ficam em: "~/Library/Application Support/AddressBook"</p>
+<p>De fato, na maior parte dos casos voc&ecirc; vai encontrar os dados em "~/Library/Application Support/PROGRAMA"</p>
+<p>Agora que sabemos onde ela est&aacute;, o primeiro passo &eacute; fechar o software (se ele estiver aberto), para n&atilde;o correr o risco de alterar os dados no processo.</p>
+<p>Vamos usar o Terminal (os comandos a seguir pr&eacute;-sup&otilde;es que voc&ecirc; tenha criado uma pasta chamada Application Data dentro do seu Dropbox):</p>
+<script src="https://gist.github.com/731780.js?file=gistfile1.txt"></script>
+<p>E &eacute; s&oacute; isso :)</p>
+<p>Nos primeiro movemos a pasta para o Dropbox, e ent&atilde;o no local onde ela deveria estar, n&oacute;s criamos um link apontando para a pasta no Dropbox, seu software nem vai notar a diferen&ccedil;a, mas agora seus dados est&atilde;o todos sendo automaticamente salvos no Dropbox :)</p>
+<p>Essas t&eacute;cnicas se aplicam tamb&eacute;m para usu&aacute;rios Linux, para Windows, sorry, voc&ecirc;s n&atilde;o tem links simb&oacute;licos =p</p>

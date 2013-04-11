@@ -1,0 +1,29 @@
+---
+layout: post
+title: '[Rails Plugin] Mongoid Taggable: criando tags para documentos mongoid'
+published: true
+---
+<p>Após certa luta eu ontem criei um novo plugin para Rails, o <a href="http://github.com/wilkerlucio/mongoid_taggable">mongoid_taggable</a>. Traduzi o meu README pra BR aqui:</p>
+<h1>Mongoid Taggable</h1>
+<p>Mongoid Taggable provê uma maneira simples para criar documentos com tags.</p>
+<h2>Instalação</h2>
+<p>Basta apenas instala-lo como um plugin para Rails:</p>
+<div class="CodeRay">
+  <div class="code"><pre>script/plugin install git://github.com/wilkerlucio/mongoid_taggable.git</pre></div>
+</div>
+
+<h2>Uso Básico</h2>
+<p>Para ativar as tags em um documento basta incluir o módulo Mongoid::Taggable:</p>
+<script src="http://gist.github.com/393346.js?file=gistfile1.rb"></script>
+<p>No seu formulário:</p>
+<script src="http://gist.github.com/393346.js?file=gistfile2.erb"></script>
+<p>Nesse caso, seu campo de texto deve receber uma lista de tags separadas por vírgula (abaixo nesse documento você verá como trocar o separador padrão.</p>
+<p>Então seu documento terá as propriedades <code>tags</code> e <code>tags_array</code>. A propriedades <code>tags</code> você deve usar como uma string com as tags separadas por vírgula, o <code>tags_array</code> é um array de tags, essas duas propriedades são sincronizadas automaticamente.</p>
+<h2>Indexando Tags</h2>
+<p>Essa biblioteca irá criar automaticamente um índice das tags após salvar o documento, esse índice é bastante útil para ter uma lista de todas as tags usadas nos documentos ou para criar um tag cloud. Veja o seguinte exemplo para entender como usar isso:</p>
+<script src="http://gist.github.com/393346.js?file=gistfile3.rb"></script>
+<p>Se você não for usar esse recurso, é bom desativar para melhorar a performance:</p>
+<script src="http://gist.github.com/393346.js?file=gistfile4.rb"></script>
+<h2>Mudando o separador padrão</h2>
+<p>Para alterar o separador padrão você precisa apenas chamar o método <span style="font-family: monospace;">tags_separator </span>na sua classe:</p>
+<script src="http://gist.github.com/393346.js?file=gistfile5.rb"></script>

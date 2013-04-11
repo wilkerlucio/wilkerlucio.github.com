@@ -1,0 +1,10 @@
+---
+layout: post
+title: Criando scripts greasemonkey com Coffee Script
+published: true
+---
+<p>Dei uma bela estudada hoje sobre o <a href="http://jashkenas.github.com/coffee-script/">Coffee Script</a>, e fazendo alguns testes eu fiz uma esp&eacute;cie de esqueleto para cria&ccedil;&atilde;o de scripts GreaseMonkey. Segue o snippet que eu criei no TextMate:</p>
+<div>
+<script src="http://gist.github.com/347517.js"></script>
+</div>
+<div>O segredo &eacute; ter essa fun&ccedil;&atilde;o encapsulada dentro de um bloco execut&aacute;vel para que o Coffee n&atilde;o coloque vari&aacute;veis acima dos coment&aacute;rios (que s&atilde;o obrigat&oacute;rios para o caso do GreaseMonkey). Dessa forma funciona perfeitamente, mas lembrando que o script deve ser compilado com a op&ccedil;&atilde;o <code>--no-wrap</code>, caso contr&aacute;rio ser&aacute; criado um escopo inicial que ficar&aacute; acima dos coment&aacute;rios.</div>
