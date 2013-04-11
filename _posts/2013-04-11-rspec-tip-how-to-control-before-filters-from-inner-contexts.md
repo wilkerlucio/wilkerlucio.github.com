@@ -12,7 +12,7 @@ this view is the same for all the specs, so, makes total sense to do it into
 a before hook, like so:
 
 ```ruby
-describe "rending some partial" do
+describe "rendering some partial" do
   let(:person) { mock("person") }
 
   before do
@@ -42,7 +42,7 @@ The idea is to use `let` statements to controle the running of the before hook.
 It's actually easier to show the code:
 
 ```ruby
-describe "rending some partial" do
+describe "rendering some partial" do
   let(:person) { mock("person") }
   let(:auto_render?) { true }
 
