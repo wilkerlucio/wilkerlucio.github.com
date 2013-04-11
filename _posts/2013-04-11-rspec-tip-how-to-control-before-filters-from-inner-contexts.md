@@ -2,8 +2,8 @@
 layout: post
 title: "RSpec tip: how to control before filters from inner contexts"
 description: ""
-category: 
-tags: []
+category: "Programming"
+tags: ['Ruby', 'RSpec', 'Test']
 ---
 {% include JB/setup %}
 I was writing some view specs here and I got into a tricky situation, that is,

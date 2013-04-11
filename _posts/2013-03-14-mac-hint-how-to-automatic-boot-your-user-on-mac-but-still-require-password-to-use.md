@@ -2,6 +2,8 @@
 layout: post
 title: Mac hint, how to automatic boot your user on mac, but still require password to use!
 published: true
+category: "Mac"
+tags: ['Mac OSX', 'Tip', 'Desktop']
 ---
 Hi folks!
 
