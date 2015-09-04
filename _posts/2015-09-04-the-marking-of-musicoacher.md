@@ -50,7 +50,7 @@ Cursive provides everything that you would expected from and IDE to have with Cl
 it's the easiest Clojure enviroment to setup that I've tried, I highly recommend it.
 
 The next important piece on the enviroment is [Figwheel](https://github.com/bhauman/lein-figwheel),
-it provides a very interactive development loop, I just save a file and all my browsers
+it provides a very interactive development loop, you just save a file and the connected browsers
 are instantly updated, this is not just a plain reload like people do with live-reload
 because the code is updated while the app state is maintened, if you wanna know more
 I recommend you to watch [Bruce Hauman presentation](https://www.youtube.com/watch?v=j-kj2qwJa_E)
@@ -84,7 +84,7 @@ whenever you want, it's your app personal development playground, where you can 
 stuff anytime as isolated, and can go back to check anytime on the same way, and it supports
 tests too.
 
-Here I leave a few screenshots of how I'm using devcards so it may clarifiy some ideas for
+Here are a few screenshots of how I'm using devcards so it may clarifiy some ideas for
 you:
 
 Devcards main, listing card namespaces
@@ -156,7 +156,7 @@ the main note of the chord, usually is the lower one, or you can say the one tha
 the higher string number), after that you need to check the distance between the tonic
 and the other notes, and with that relationship you can figure out the chord name.
 
-If was going to keep typing I would get too techinical, so instead I'll share with you
+If was going to keep typing it would get too techinical, so instead I'll share with you
 the full source that does that, and you can examine if you like:
 
 ```clojure
@@ -353,7 +353,7 @@ Musicoacher uses 2 different types of communication between the components, the 
 are events fired by state/props (props for native components, state for my custom), this
 is used for the components that are usually closer to the leaf nodes on the component
 tree, these are the pieces that do the real work and know nothing about the app in general,
-they just receive props and fire events back, one component that I can use for example
+they just receive props and fire events back, one component that we can use for example
 here is the `chord-builder`, which is the componet you use to create chords, here is
 an extracted code from it's usage:
 
@@ -379,7 +379,7 @@ but you also have to be a bit careful, remember that your function will be creat
 once, so if you need to access props from there, remember to use `om/get-props`, otherwise
 you will always get the props as the first version when the function was created.
 
-To help on calling methods on state I use this helper function:
+To help on calling methods on state there is this helper function:
 
 ```clojure
 (defn call-state-fn [owner f & args]
@@ -388,7 +388,7 @@ To help on calling methods on state I use this helper function:
 ```
 
 The second level uses `core.async`, there is one event bus for the app (that's a `core.async`
-channel), and from this bus there is a pub/sub, then I use `services` that are registered
+channel), and from this bus there is a pub/sub, then it uses `services` that are registered
 into the pub/sub at component level.
 
 Example setup code to init app bus and pub/sub
@@ -535,7 +535,7 @@ Using that this function runs on each iteration:
        :index   index :next (get-in timeline [(inc index) :timeline/time])})))
 ```
 
-This way, most of the times I just hit cache using a fast check, but it can safely
+This way, most of the times it just hit cache using a fast check, but it can safely
 fall back to other methods.
 
 You also need to be careful about what you are rendering, which CSS properties are you
@@ -564,5 +564,4 @@ all ideas will be taking in consideration.
 This project is being really fun, the possibilities are almost endless and that ecourages
 me to keep working on it.
 
-Thanks for keep on the reading, this ended up a bit bigger than I expected, if you have
-any questions just let me know.
+Thanks for keep on the reading, this ended up a bit bigger than expected, hope you enjoyed.
