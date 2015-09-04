@@ -20,7 +20,7 @@ So let's go for it!
 ## The Stack
 
 First at higher level, Musicoacher is written mostly on [ClojureScript](https://github.com/clojure/clojurescript)
-that is my favorite language ever, if you don't know it, [you should](https://www.youtube.com/watch?v=MTawgp3SKy8). Going down the stack
+that is my favorite language at this time, if you don't know it, [you should](https://www.youtube.com/watch?v=MTawgp3SKy8). Going down the stack
 we have [React.JS](http://facebook.github.io/react/) being the bigger framework behind
 the scenes, and I'm using it though [Om](https://github.com/omcljs/om) which is a wrapper
 for React.JS with some goodies that makes sense on ClojureScript context, and also other
