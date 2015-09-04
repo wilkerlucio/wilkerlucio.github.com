@@ -1,11 +1,11 @@
 ---
 layout: post
-title: The Making of Musicoacher
+title: Making of Musicoacher
 published: true
 category: "Clojure"
 tags: ['Clojure', 'ClojureScript', 'Om', 'Figwheel', 'Devcards', 'Musicoacher']
 ---
-# The Making of Musicoacher
+# Making of Musicoacher
 
 [Musicoacher](http://www.musicoacher.com) is a free music teaching tool that I just released this week, and as
 [Bruce Hauman said](https://twitter.com/bhauman/status/639064245964029952) "now the
