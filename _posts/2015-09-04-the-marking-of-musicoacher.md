@@ -33,7 +33,7 @@ a pretty hard reason for me to decide to delegate that part to someone else, so 
 focus on the parts that I can do better.
 
 There are a bunch of options these days if you don't want to write your own server, for
-Musicoacher I had picked [Parse.com](http://www.parse.com), I evaluated it against
+Musicoacher [Parse.com](http://www.parse.com) is being used, I evaluated it against
 [Firebase](http://www.firebase.com) and maybe using [JAWS](https://github.com/jaws-stack/JAWS),
 but for the sake of easines Parse had the better feature case for my needs, which on this
 case included `Database Storage`, `User Management` and `ACLs`,
