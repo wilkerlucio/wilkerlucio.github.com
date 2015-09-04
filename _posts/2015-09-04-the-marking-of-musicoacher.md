@@ -371,7 +371,7 @@ an extracted code from it's usage:
 
 This type of communication is good for keeping the components decoupled from the others.
 
-Tip: send the callback functions as state instead of props, most of the times the callback
+Tip: send the callback functions as `state` instead of `props`, most of the times the callback
 functions are created during the render time (like the one on the example before) and
 if you send that as a prop it can prevent the `shouldComponentUpdate` to work properly
 because the props will be considered different, this is not what you want most of the time,
