@@ -22,14 +22,14 @@ So let's go for it!
 First at higher level, Musicoacher is written mostly on [ClojureScript](https://github.com/clojure/clojurescript)
 that is my favorite language at this time, if you don't know it, [you should](https://www.youtube.com/watch?v=MTawgp3SKy8). Going down the stack
 we have [React.JS](http://facebook.github.io/react/) being the bigger framework behind
-the scenes, and I'm using it though [Om](https://github.com/omcljs/om) which is a wrapper
+the scenes, and I'm using it through [Om](https://github.com/omcljs/om) which is a wrapper
 for React.JS with some goodies that makes sense on ClojureScript context, and also other
 ClojureScript libraries that I'll mention later.
 
 There is no custom server for this app, dealing with server configuration is something
 that I like to avoid as much as possible, and having the idea that at some point I would
 be smashing my head on the wall because I can't figure out how to scale my service was
-a pretty hard reason for me to decide to delegate that part to someone else, so I can
+a pretty significant reason for me to decide to delegate that part to someone else, so I can
 focus on the parts that I can do better.
 
 There are a bunch of options these days if you don't want to write your own server, for
@@ -59,9 +59,9 @@ on it, you will be amazed.
 Now follow me with this "component development simulation", see if you find yourself
 familiar with at least some of these steps:
 
-You have a blank page, then you start writing a component (let's use the chord rendered
+You have a blank page, then you start writing a component (let's use the chord component
 that we use on the Chord Book on Musicoacher), we start with the simplest version, it just
-renders it as Silent (no fingers placed anywhere), we write the code, we view the component
+renders it as a Silent chord (no fingers placed anywhere), we write the code, we view the component
 and it looks great! ST1*
 
 Now the simple case is ready, we need make this component to support a new state that
@@ -69,19 +69,19 @@ includes some fingers on the fretboard, then we update the state of the componen
 write that new code to support one example with that, and now we see it rendered, great
 again! ST2*
 
-If you do as I do, the problem now is that we have a view of the component on ST2, but
-we just got rid of your example of ST1, maybe you don't do it at this time, maybe you
-keep both, but usually, eventually you will get rid of those examples to make the real
+If you work as I do, the problem now is that we only have a view of the component on ST2, but
+we just got rid of our example of ST1, maybe you don't overwrite it immediately, maybe you
+keep both, but usually, eventually you will get rid of these examples to make the real
 use cases, and our simplest representations that we used to develop our component are lost...
 
-But why we do that? Why don't we keep those representations so we could in future just
-see if they still working? Wouldn't be nice to have a part of our app dedicated to those
-kind of simple examples, where you could develop then, and go back to check on then anytime,
+But why do we do that? Why don't we keep those representations so we that can, in the future, just
+see if they still working? Wouldn't be nice to have a part of our app dedicated to these
+kind of simple code examples, where you could work on them, and go back to check on them anytime,
 without having to manually put your app into an specific state to test. And that's
 what [Devcards](https://github.com/bhauman/devcards) is about! Devcards provides an
 enviroment for you to write those small UI's and components and keep it there to check
-whenever you want, it's your app personal development playground, where you can write new
-stuff anytime as isolated, and can go back to check anytime on the same way, and it supports
+whenever you want, it's your app's personal development playground, where you can write new
+stuff anytime in an isolated manner, and can go back to check anytime on the same way, and it supports
 tests too.
 
 Here are a few screenshots of how I'm using devcards so it may clarifiy some ideas for
