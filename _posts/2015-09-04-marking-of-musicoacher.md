@@ -20,14 +20,14 @@ So let's go for it!
 ## The Stack
 
 First at higher level, Musicoacher is written mostly on [ClojureScript](https://github.com/clojure/clojurescript)
-that is my favorite language at this time, if you don't know it, [you should](https://www.youtube.com/watch?v=MTawgp3SKy8). Going down the stack
+that is my favorite language at this time if you don't know it, [you should](https://www.youtube.com/watch?v=MTawgp3SKy8). Going down the stack
 we have [React.JS](http://facebook.github.io/react/) being the bigger framework behind
 the scenes, and I'm using it through [Om](https://github.com/omcljs/om) which is a wrapper
-for React.JS with some goodies that makes sense on ClojureScript context, and also other
+for React.JS with some goodies that make sense on ClojureScript context, and also other
 ClojureScript libraries that I'll mention later.
 
 There is no custom server for this app, dealing with server configuration is something
-that I like to avoid as much as possible, and having the idea that at some point I would
+that I like to avoid as much as possible and having the idea that at some point I would
 be smashing my head on the wall because I can't figure out how to scale my service was
 a pretty significant reason for me to decide to delegate that part to someone else, so I can
 focus on the parts that I can do better.
@@ -35,9 +35,9 @@ focus on the parts that I can do better.
 There are a bunch of options these days if you don't want to write your own server, for
 Musicoacher [Parse.com](http://www.parse.com) is being used, I evaluated it against
 [Firebase](http://www.firebase.com) and maybe using [JAWS](https://github.com/jaws-stack/JAWS),
-but for the sake of easines Parse had the better feature case for my needs, which on this
+but for the sake of easiness Parse had the better feature case for my needs, which on this
 case included `Database Storage`, `User Management` and `ACLs`,
-also a good `Analytics` built in was helpful as well.
+also, a good `Analytics` built in was helpful as well.
 
 There are some lines of pure Javascript on the Cloud Code, I would like to convert this code
 into ClojureScript later, maybe I'll try even to run as bootstrapped CLJS there, would be
@@ -46,13 +46,13 @@ great, but for now it's just plain Javascript there.
 ## Environment
 
 Starting by the editor, the choice here goes to [IntelliJ Idea](https://www.jetbrains.com/idea/) + [Cursive](https://cursiveclojure.com),
-Cursive provides everything that you would expected from and IDE to have with Clojure,
-it's the easiest Clojure enviroment to setup that I've tried, I highly recommend it.
+Cursive provides everything that you would expect from and IDE to have with Clojure,
+it's the easiest Clojure environment to setup that I've tried, I highly recommend it.
 
-The next important piece on the enviroment is [Figwheel](https://github.com/bhauman/lein-figwheel),
+The next important piece on the environment is [Figwheel](https://github.com/bhauman/lein-figwheel),
 it provides a very interactive development loop, you just save a file and the connected browsers
 are instantly updated, this is not just a plain reload like people do with live-reload
-because the code is updated while the app state is maintened, if you wanna know more
+because the code is updated while the app state is maintained, if you wanna know more
 I recommend you to watch [Bruce Hauman presentation](https://www.youtube.com/watch?v=j-kj2qwJa_E)
 on it, you will be amazed.
 
@@ -72,14 +72,14 @@ again! ST2*
 If you work as I do, the problem now is that we only have a view of the component on ST2, but
 we just got rid of our example of ST1, maybe you don't overwrite it immediately, maybe you
 keep both, but usually, eventually you will get rid of these examples to make the real
-use cases, and our simplest representations that we used to develop our component are lost...
+use cases and our simplest representations that we used to develop our component are lost...
 
 But why do we do that? Why don't we keep those representations so we that can, in the future, just
 see if they still working? Wouldn't be nice to have a part of our app dedicated to these
 kind of simple code examples, where you could work on them, and go back to check on them anytime,
 without having to manually put your app into an specific state to test. And that's
 what [Devcards](https://github.com/bhauman/devcards) is about! Devcards provides an
-enviroment for you to write those small UI's and components and keep it there to check
+environment for you to write those small UI's and components and keep it there to check
 whenever you want, it's your app's personal development playground, where you can write new
 stuff anytime in an isolated manner, and can go back to check anytime on the same way, and it supports
 tests too.
@@ -91,7 +91,7 @@ Devcards main, listing card namespaces
 
 ![Devcards Namespaces]({{ site.url }}/assets/the-making-of-musicoacher/devcards-namespaces.png)
 
-Cards for examples on the chord vizualization
+Cards for examples on the chord visualization
 
 ![Devcards Chords]({{ site.url }}/assets/the-making-of-musicoacher/devcards-chords.png)
 
@@ -114,7 +114,7 @@ The chord editor
 
 There is a more basic fretboard component that does just the fretboard rendering and
 trigger events when notes are clicked over there, then the `chord-editor` component
-uses it an implements clicking to generate the chord, the process consists as:
+uses it and implements clicking to generate the chord, the process consists as:
 
 ```clojure
 {:on-click-note (fn [[string fret]]
@@ -152,11 +152,11 @@ Let's explore each of those parts individually
 
 On music theory, there are some criteria that you can use to find out a chord name once
 you know the notes that are being played, the first thing to look at is the `tonic` (that's
-the main note of the chord, usually is the lower one, or you can say the one that is on
+the main note of the chord usually is the lower one, or you can say the one that is on
 the higher string number), after that you need to check the distance between the tonic
 and the other notes, and with that relationship you can figure out the chord name.
 
-If was going to keep typing it would get too techinical, so instead I'll share with you
+If was going to keep typing it would get too technical, so instead I'll share with you
 the full source that does that, and you can examine if you like:
 
 ```clojure
@@ -355,7 +355,7 @@ is used for the components that are usually closer to the leaf nodes on the comp
 tree, these are the pieces that do the real work and know nothing about the app in general,
 they just receive props and fire events back, one component that we can use for example
 here is the `chord-builder`, which is the componet you use to create chords, here is
-an extracted code from it's usage:
+an extracted code from its usage:
 
 ```clojure
 (om/build chord-builder
@@ -463,7 +463,7 @@ goes here, in the root component there are services dedicated for general purpos
 like user sign/out, search, navigation... And each "page component" (components that are
 the second higher level, just after the layout one) has it's own services, for example
 the Editor component has services to manage everything you do when writing tracks and
-they are the ones who communicate with Parse to persist the data, so in general this is
+they are the ones who communicate with Parse to persist the data, so, in general, this is
 a very flexible model and I end up liking it very much.
 
 This is the helper used to send messages and an example usage of it:
@@ -485,15 +485,15 @@ you have about 16ms to do all your processing + render (spoiler: the secret is c
 Using React and Om the strategy for making your app fasting is making as most components
 hit cache as possible, that means, avoid sending data that component doesn't need.
 
-In the case of Musicoacher editor the `time` property is the one that I have to be careful
-with, because this property is update on each animation frame, so, even so the time property
-comes from the very up, the components that doesn't need it (like the chord book and etc)
-don't update on it's change, it's a simple thing that you should always have in mind.
+In the case of Musicoacher editor, the `time` property is the one that I have to be careful
+with, because this property updates on each animation frame, so, even so the time property
+comes from the very up, the components that don't need it (like the chord book and etc)
+don't update on its change, it's a simple thing that you should always have in mind.
 
 Another tip that I have for you is: don't be afraid of creating more components.
 In fact, creating more components is what can boost your speed, when you use just plain
-components it has to render to the virtual DOM every time, when you have an Om component
-it's different, in this case it will first just compare the data, and if the data matches
+components it has to render to the virtual DOM every time when you have an Om component
+it's different, in this case, it will first just compare the data, and if the data matches
 (worth remember, ClojureScript uses immutable data structures that can compare immutable
 data pretty fast) none of the virtual DOM of that component will be rendered and this way
 you can save a lot of your precious CPU cycles, so keep that in mind when organizing
@@ -553,7 +553,7 @@ one to implement and it's pretty flexible in general.
 
 The plan is to continue working on the current features and make then very easy to use before
 move to other features, there are still basic things that are not there like: changing
-the tunning for the track, putting a capo on the guitar arm, change play speed, change
+the tuning for the track, putting a capo on the guitar arm, change play speed, change
 play volume...
 
 If you have any feedback on system please report using the Feedback button on the website,
@@ -561,7 +561,7 @@ all ideas will be taking in consideration.
 
 ## Conclusion
 
-This project is being really fun, the possibilities are almost endless and that ecourages
+This project is being really fun, the possibilities are almost endless and that encourages
 me to keep working on it.
 
 Thanks for keep on the reading, this ended up a bit bigger than expected, hope you enjoyed.
